@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.ken42.Appw2l.Utils">
+        <methods>
+          <include name="Address_info"/>
+          <include name="signout_app"/>
+          <include name="smallSleepBetweenClicks"/>
+          <include name="goBackToHome"/>
+          <include name="printException"/>
+          <include name="other_info"/>
+          <include name="basic_info"/>
+          <include name="address_info"/>
+          <include name="firstname_validationalphabet"/>
+          <include name="Appbasic_info"/>
+          <include name="salesforce_login"/>
+          <include name="w2lform_validationcheck"/>
+          <include name="markasStatus"/>
+          <include name="submit_info"/>
+          <include name="checkbox"/>
+          <include name="validateAppbasic_info"/>
+          <include name="selectsaveanddelete"/>
+          <include name="bigSleepBetweenClicks"/>
+          <include name="family_info"/>
+          <include name="clickonApplicationview"/>
+          <include name="uploadfile_info"/>
+          <include name="login"/>
+          <include name="Multipleuploadfile_info"/>
+          <include name="submit_app"/>
+          <include name="profile_logout"/>
+          <include name="clickonApplicationandselect"/>
+          <include name="salesforce_applicationviewanddelete"/>
+          <include name="qualification_info"/>
+          <include name="clickonleadandselect"/>
+          <include name="validate_middlename"/>
+        </methods>
+      </class> <!-- com.ken42.Appw2l.Utils -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
