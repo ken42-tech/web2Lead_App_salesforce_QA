@@ -512,7 +512,7 @@ public class Utils {
 		Actions ac1 = new Actions(driver);
 		WebElement ele1 = driver.findElement(By.xpath("//span[.='Submit']|//span[.='SUBMIT']"));
 		ac1.doubleClick(ele1).perform();
-		
+
 	}
 
 	@Test
@@ -816,20 +816,21 @@ public class Utils {
 //		driver.findElement(By.xpath("//li[@data-value='" + castism + "']")).click();
 
 		Thread.sleep(2000);
-	driver.findElement(By.xpath("(//button[@name='gender'])[3]")).click();
+	WebElement el= driver.findElement(By.xpath("(//button[@name='gender'])[3]"));
+	
+	boolean actual = el.isSelected();
+	
+if(actual)
+{
+	System.out.println("true");
+	
+}
+else
+{
+	el.click();
+}
 
-//if(el.isSelected())
-//{
-//	System.out.println("true");
-//	
-//}
-//else
-//{
-//	el.click();
-//}
-
-
-Utils.clickXpath(driver, ActionXpath.clickonnext, "clickonnext");
+		Utils.clickXpath(driver, ActionXpath.clickonnext, "clickonnext");
 
 	}
 
@@ -972,7 +973,7 @@ Utils.clickXpath(driver, ActionXpath.clickonnext, "clickonnext");
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e);
 		Thread.sleep(5000);
 
-		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2000)");
 //		Thread.sleep(2000);
 //		Utils.clickXpath(driver, ActionXpath.clickoncountry1, "clickoncountry");
@@ -1218,52 +1219,75 @@ Utils.clickXpath(driver, ActionXpath.clickonnext, "clickonnext");
 
 		Thread.sleep(3000);
 		// WebDriverWait wait = new WebDriverWait(driver, 20);
-		WebElement e11 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[1]")));
-	((JavascriptExecutor) driver).executeScript("arguments[0].click();", e11);
+//		WebElement e11 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[1]")));
+//	((JavascriptExecutor) driver).executeScript("arguments[0].click();", e11);
 
-	//	driver.findElement(By.xpath("(//span[@class='view-all-label'])[1]")).click();
-		
-		
+		// driver.findElement(By.xpath("(//span[@class='view-all-label'])[1]")).click();
+
 //		Thread.sleep(3000);
 //		
 //		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//lightning-button-menu[@class=\"slds-dropdown-trigger slds-dropdown-trigger_click\"])[2]")));
 //		((JavascriptExecutor)driver).executeScript("arguments[0].click();", elem);
 //		//driver.findElement(By.xpath("(//*[name()='svg' and @class='slds-icon slds-icon-text-default slds-icon_xx-small'])[54]")).click();
-	
+
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//a[@title='Delete']")).click();
+//	
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//span[.='Delete']")).click();
+//		Thread.sleep(3000);
+
+		Thread.sleep(4000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2300)");
+		Thread.sleep(3000);
+		WebElement e111 = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[4]")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e111);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//a[@title='Delete']")).click();
-	
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[.='Delete']")).click();
+
+		Thread.sleep(8000);
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,1200)");
+
+		Thread.sleep(3000);
+		// WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebElement e111q = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[4]")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e111q);
+
+		WebElement e1q = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Delete']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e1q);
+
+//	Thread.sleep(3000);
+//		driver.findElement(By.xpath("//a[@title='Delete']")).click();
+
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[.='Delete']")).click();
+
+		Thread.sleep(8000);
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,-3000)");
+
+		Thread.sleep(3000);
+		// WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebElement e11q = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[1]")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e11q);
+
+		WebElement eq = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Delete']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", eq);
+
+//	Thread.sleep(3000);
+//		driver.findElement(By.xpath("//a[@title='Delete']")).click();
+
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[.='Delete']")).click();
 		Thread.sleep(3000);
-		
-		Thread.sleep(10000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2000)");
-		Thread.sleep(3000);
-//		
-//		
-//	
-		
-		Thread.sleep(3000);
-		// WebDriverWait wait = new WebDriverWait(driver, 20);
-		WebElement e111 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[7]")));
-	((JavascriptExecutor) driver).executeScript("arguments[0].click();", e111);
 
-//	driver.findElement(By.xpath("(//span[text()='View All'])[5]")).click();
-//		
-//		
-//		Thread.sleep(3000);
-//		driver.findElement(By.xpath("(//a[@title='Show 2 more actions'])[2]")).click();
-//	
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//a[@title='Delete']")).click();
-//	
-		Thread.sleep(3000);
-	driver.findElement(By.xpath("//span[.='Delete']")).click();
-		Thread.sleep(3000);
-//		driver.navigate().back();
-	
 		WebElement elqq = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[@class='slds-button slds-button_icon-border-filled']")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", elqq);

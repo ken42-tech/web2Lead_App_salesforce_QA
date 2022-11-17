@@ -66,7 +66,7 @@ public class w2l_portal {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 
 		if (Utils.checkWindowsOs()) {
-			CSV_PATH = "C:\\Users\\Public\\Documents\\datatest.csv";
+			CSV_PATH = "C:\\Users\\Public\\Documents\\alldatatest.csv";
 			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
 		} else {
 			CSV_PATH = "/Users/Shared/pfs.csv";
@@ -580,7 +580,7 @@ public class w2l_portal {
 			Utils.submit_info(driver, csvCell, web_url);
 			Thread.sleep(6000);
 			log.info("***************** COMPLETED TESTTING OF PORTAL" + url);
-			//driver.quit();
+			driver.quit();
 		} catch (Exception e) {
 
 			e.printStackTrace();
