@@ -66,7 +66,7 @@ public class w2l_portal {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 
 		if (Utils.checkWindowsOs()) {
-			CSV_PATH = "C:\\Users\\Public\\Documents\\alldatatest.csv";
+			CSV_PATH = "C:\\Users\\Public\\Documents\\dataa.csv";
 			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
 		} else {
 			CSV_PATH = "/Users/Shared/pfs.csv";
@@ -132,7 +132,7 @@ public class w2l_portal {
 					break;
 
 				case 8:
-					fillform_W2l(w2l_url, driver, csvCell);
+					fillform_W2l_withoutValidation(w2l_url, driver, csvCell);
 					break;
 				case 9:
 					Apploginuploadandsubmit(app_url, driver, csvCell);
@@ -153,6 +153,9 @@ public class w2l_portal {
 					break;
 				case 14:
 					validatewithfnfillform_W2l(w2l_url, driver, csvCell);
+					break;
+				case 15:
+					salesforce_applicationviewverification(sal_url, driver, csvCell);
 					break;
 
 				default:
@@ -271,9 +274,14 @@ public class w2l_portal {
 
 			}
 
+			log.info("Tc1:-Firstname validation testcase passed");
+			System.out.println("Tc1:-Firstname validation testcase passed");
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc1:-Firstname validation testcase completed");
+			log.info("Tc1:-Firstname validation testcase failed");
+			System.out.println("Tc1:-Firstname validation testcase failed");
+
 		}
 	}
 
@@ -326,9 +334,12 @@ public class w2l_portal {
 
 			}
 
+			log.info("Tc2:-Lastname validation testcase passed");
+			System.out.println("Tc2:-Lastname validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc2:-Lastname validation testcase completed");
+			log.info("Tc2:-Lastname validation testcase failed");
+			System.out.println("Tc2:-Lastname validation testcase failed");
 		}
 	}
 
@@ -377,9 +388,12 @@ public class w2l_portal {
 //
 //			}
 
+			log.info("Tc3:-Middlename validation testcase passed");
+			System.out.println("Tc3:-Middlename validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc3:-Middlename validation testcase completed");
+			log.info("Tc3:-Middlename validation testcase failed");
+			System.out.println("Tc3:-Middlename validation testcase failed");
 		}
 	}
 
@@ -435,9 +449,13 @@ public class w2l_portal {
 //				log.warning("Tc4:-Email data validation check with invalid email failed  ");
 //
 //			}
+
+			log.info("Tc4:-Email validation testcase passed");
+			System.out.println("Tc4:-Email validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc4:-Email validation testcase completed");
+			log.info("Tc4:-Email validation testcase failed");
+			System.out.println("Tc4:-Email validation testcase failed");
 		}
 	}
 
@@ -484,9 +502,12 @@ public class w2l_portal {
 
 			}
 
+			log.info("Tc5:-phone validation testcase passed");
+			System.out.println("Tc5:-phone validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc5:-phone validation testcase completed");
+			log.info("Tc5:-phone validation testcase failed");
+			System.out.println("Tc5:-phone validation testcase failed");
 		}
 	}
 
@@ -527,9 +548,13 @@ public class w2l_portal {
 
 			}
 
+			log.info("Tc6:-Addition phone number validation testcase passed");
+			System.out.println("Tc6:-Addition phone number validation testcase passed");
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc6:-Addition phone number validation testcase completed");
+			log.info("Tc6:-Addition phone number validation testcase failed");
+			System.out.println("Tc6:-Addition phone number validation testcase failed");
 		}
 	}
 
@@ -555,20 +580,25 @@ public class w2l_portal {
 			System.out.println(emptycheckform);
 			log.warning("Tc7:- validation  failed because field's are not entered  ");
 
+			log.info("Tc7:-EmptyW2l_fillform_check testcase passed");
+			System.out.println("Tc7:-EmptyW2l_fillform_check testcase passed");
+
 		}
 
 		catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc7:-EmptyW2l_fillform_check testcase completed");
+			log.info("Tc7:-EmptyW2l_fillform_check testcase failed");
+			System.out.println("Tc7:-EmptyW2l_fillform_check testcase failed");
 		}
 	}
 
 	@Test(priority = 8)
-	public static void fillform_W2l(String url, WebDriver Driver, String[] csvCell) throws Throwable, Throwable {
+	public static void fillform_W2l_withoutValidation(String url, WebDriver Driver, String[] csvCell)
+			throws Throwable, Throwable {
 		try {
-//			((JavascriptExecutor) driver).executeScript("window.open()");
-//			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
-//			driver.switchTo().window(tab.get(2));
+			((JavascriptExecutor) driver).executeScript("window.open()");
+			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab.get(2));
 			String web_url = csvCell[0];
 			Driver.get(web_url);
 			Utils.basic_info(Driver, csvCell, url);
@@ -579,12 +609,15 @@ public class w2l_portal {
 
 			Utils.submit_info(driver, csvCell, web_url);
 			Thread.sleep(6000);
-			log.info("***************** COMPLETED TESTTING OF PORTAL" + url);
-			driver.quit();
+
+			log.info("Tc8:-web2Lead formfillup testcase passed");
+			System.out.println("Tc8:-web2Lead formfillup testcase passed");
+
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			log.info("Tc8:-web2Lead formfillup testcase completed");
+			log.info("Tc8:-web2Lead formfillup testcase failed");
+			System.out.println("Tc8:-web2Lead formfillup testcase failed");
 
 		}
 	}
@@ -592,9 +625,9 @@ public class w2l_portal {
 	@Test(priority = 9)
 	public static void Apploginuploadandsubmit(String app_url, WebDriver driver, String[] csvCell) throws Throwable {
 		try {
-//			((JavascriptExecutor) driver).executeScript("window.open()");
-//			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
-//			driver.switchTo().window(tab.get(3));
+			((JavascriptExecutor) driver).executeScript("window.open()");
+			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab.get(3));
 			String url = csvCell[1];
 			driver.get(url);
 
@@ -608,10 +641,14 @@ public class w2l_portal {
 			Utils.submit_app(app_url, driver, csvCell);
 
 			Utils.signout_app(app_url, driver, csvCell);
+			log.info("Tc9:-Application login,fileuploadandsubmit testcase passed");
+			System.out.println("Tc9:-Application login,fileuploadandsubmit testcase passed");
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc9:-Application login,fileuploadandsubmit testcase completed");
+			log.info("Tc9:-Application login,fileuploadandsubmit testcase failed");
+			System.out.println("Tc9:-Application login,fileuploadandsubmit testcase failed");
+
 		}
 	}
 
@@ -622,9 +659,9 @@ public class w2l_portal {
 	{
 		try {
 
-//			((JavascriptExecutor) driver).executeScript("window.open()");
-//			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
-//			driver.switchTo().window(tab.get(4));
+			((JavascriptExecutor) driver).executeScript("window.open()");
+			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab.get(4));
 
 			String url = csvCell[40];
 			driver.get(url);
@@ -632,10 +669,13 @@ public class w2l_portal {
 			Utils.clickonApplicationandselect(sal_url, driver, csvCell);
 
 			Utils.profile_logout(sal_url, driver, csvCell);
-
+			log.info("Tc10:-Salesforce Application view and delete testcase passed");
+			System.out.println("Tc10:-Salesforce Application view and delete testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc10:-Salesforce Application view and delete testcase completed");
+			log.info("Tc10:-Salesforce Application view and delete testcase failed");
+			System.out.println("Tc10:-Salesforce Application view and delete testcase failed");
+
 		}
 	}
 
@@ -658,9 +698,13 @@ public class w2l_portal {
 
 			System.out.println(message);
 
+			log.info("Tc11:-Application with invalidnumber testcase passed");
+			System.out.println("Tc11:-Application with invalidnumber testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc11:-Application with invalidnumber testcase completed");
+
+			log.info("Tc11:-Application with invalidnumber testcase failed");
+			System.out.println("Tc11:-Application with invalidnumber testcase failed");
 		}
 	}
 
@@ -687,9 +731,15 @@ public class w2l_portal {
 
 			Utils.salesforce_applicationviewanddelete(url, driver, csvCell);
 
+			log.info("Tc12:-Application form_fill and file_size check testcase and application delete passed");
+			System.out
+					.println("Tc12:-Application form_fill and file_size check testcase and application delete passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc12:-Application form_fill and file_size check testcase and application delete completed");
+
+			log.info("Tc12:-Application form_fill and file_size check testcase and application delete failed");
+			System.out
+					.println("Tc12:-Application form_fill and file_size check testcase and application delete failed");
 		}
 	}
 
@@ -710,10 +760,12 @@ public class w2l_portal {
 			Utils.markasStatus(sal_url, driver2, csvCell);
 			Utils.selectsaveanddelete(sal_url, driver2, csvCell);
 			Utils.profile_logout(sal_url, driver2, csvCell);
-			driver.quit();
+			log.info("Tc13:-Salesforce login,view,mark and delete testcase passed");
+			System.out.println("Tc13:-Salesforce login,view,mark and delete testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc13:-Salesforce login,view,mark and delete testcase completed");
+			log.info("Tc13:-Salesforce login,view,mark and delete testcase Failed");
+			System.out.println("Tc13:-Salesforce login,view,mark and delete testcase Failed");
 		}
 	}
 
@@ -742,11 +794,40 @@ public class w2l_portal {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-2000)");
 
-			log.info("***************** COMPLETED TESTTING OF PORTAL but failed due to firstname empty field" + url);
-
+			log.info("Tc14:-firstname validate with complete form fill web2Lead  testcase Passed");
+			System.out.println("Tc14:-firstname validate with complete form fill web2Lead  testcase Passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc14:-firstname validate with complete form fill web2Lead  testcase completed");
+
+			log.info("Tc14:-firstname validate with complete form fill web2Lead  testcase Failed");
+			System.out.println("Tc14:-firstname validate with complete form fill web2Lead  testcase Failed");
+		}
+	}
+
+	@Test(priority = 15)
+	public static void salesforce_applicationviewverification(String sal_url, WebDriver driver, String[] csvCell)
+			throws java.lang.Exception
+
+	{
+		try {
+
+			((JavascriptExecutor) driver).executeScript("window.open()");
+			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab.get(9));
+
+			String url = csvCell[40];
+			driver.get(url);
+			Utils.salesforce_login(sal_url, driver, csvCell);
+			Utils.clickonApplicationandverify(sal_url, driver, csvCell);
+
+			// Utils.profile_logout(sal_url, driver, csvCell);
+			log.info("Tc15:-Salesforce Application view and verification passed");
+			System.out.println("Tc15:-Salesforce Application view and verification testcase passed");
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.info("Tc15:-Salesforce Application view and verification failed");
+			System.out.println("Tc15:-Salesforce Application view and verification testcase failed");
+
 		}
 	}
 

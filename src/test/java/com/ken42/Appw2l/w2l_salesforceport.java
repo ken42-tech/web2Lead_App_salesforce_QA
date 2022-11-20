@@ -266,10 +266,12 @@ public class w2l_salesforceport {
 				log.warning("Tc1:-Firstname data validation check with SpecialCharacter failed  it's null");
 
 			}
-
+			log.info("Tc1:-Firstname validation testcase passed");
+			System.out.println("Tc1:-Firstname validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc1:-Firstname validation testcase completed");
+			log.info("Tc1:-Firstname validation testcase failed");
+			System.out.println("Tc1:-Firstname validation testcase failed");
 		}
 	}
 
@@ -321,10 +323,12 @@ public class w2l_salesforceport {
 				log.warning("Tc2:-LastName data validation check with specialCharacter failed it's null ");
 
 			}
-
+			log.info("Tc2:-Lastname validation testcase passed");
+			System.out.println("Tc2:-Lastname validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc2:-Lastname validation testcase completed");
+			log.info("Tc2:-Lastname validation testcase failed");
+			System.out.println("Tc2:-Lastname validation testcase failed");
 		}
 	}
 
@@ -377,10 +381,15 @@ public class w2l_salesforceport {
 //					log.warning("Tc3:-MiddleName data validation check with length size failed  ");
 				//
 			}
+			
+			log.info("Tc3:-Middlename validation testcase passed");
+			System.out.println("Tc3:-Middlename validation testcase passed");
+	
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc3:-Middlename validation testcase completed");
+			log.info("Tc3:-Middlename validation testcase failed");
+			System.out.println("Tc3:-Middlename validation testcase failed");
 		}
 	}
 
@@ -436,9 +445,13 @@ public class w2l_salesforceport {
 //					log.warning("Tc4:-Email data validation check with invalid email failed  ");
 			//
 //				}
+			
+			log.info("Tc4:-Email validation testcase passed");
+			System.out.println("Tc4:-Email validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc4:-Email validation testcase completed");
+			log.info("Tc4:-Email validation testcase failed");
+			System.out.println("Tc4:-Email validation testcase failed");
 		}
 	}
 
@@ -478,9 +491,12 @@ public class w2l_salesforceport {
 
 			}
 
+			log.info("Tc5:-phone validation testcase passed");
+			System.out.println("Tc5:-phone validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc5:-phone validation testcase completed");
+			log.info("Tc5:-phone validation testcase failed");
+			System.out.println("Tc5:-phone validation testcase failed");
 		}
 
 	}
@@ -527,9 +543,12 @@ public class w2l_salesforceport {
 				}
 
 			}
+			log.info("Tc6:-Addition phone number validation testcase passed");
+			System.out.println("Tc6:-Addition phone number validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc6:-Addition phone number validation testcase completed");
+			log.info("Tc6:-Addition phone number validation testcase failed");
+			System.out.println("Tc6:-Addition phone number validation testcase failed");
 		}
 	}
 
@@ -585,11 +604,17 @@ public class w2l_salesforceport {
 					log.warning("Tc7:-age data validation check with alphabet failed it's null ");
 
 				}
+				
+				
+				
 
 			}
+			log.info("Tc7:-Age validation testcase passed");
+			System.out.println("Tc7:-Age validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc7:-Age validation testcase completed");
+			log.info("Tc7:-Age validation testcase failed");
+			System.out.println("Tc7:-Age validation testcase failed");
 		}
 	}
 
@@ -635,9 +660,13 @@ public class w2l_salesforceport {
 				}
 
 			}
+			
+			log.info("Tc8:-Aadhar validation testcase passed");
+			System.out.println("Tc8:-Aadhar validation testcase passed");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc8:-Aadhar validation testcase completed");
+			log.info("Tc8:-Aadhar validation testcase failed");
+			System.out.println("Tc8:-Aadhar validation testcase failed");
 		}
 	}
 
@@ -663,11 +692,16 @@ public class w2l_salesforceport {
 			System.out.println(emptycheckform);
 			log.warning("Tc9:- validation  failed because field's are not entered  ");
 
+			
+			log.info("Tc9:-EmptyW2l_fillform_check testcase passed");	
+			System.out.println("Tc9:-EmptyW2l_fillform_check testcase passed");
 		}
 
 		catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc9:-EmptyW2l_fillform_check testcase completed");
+			log.info("Tc9:-EmptyW2l_fillform_check testcase failed");
+			System.out.println("Tc9:-EmptyW2l_fillform_check testcase failed");
+			
 		}
 	}
 
@@ -687,11 +721,16 @@ public class w2l_salesforceport {
 
 			Utils.submit_info(driver, csvCell, web_url);
 
-			log.info("***************** COMPLETED TESTTING OF PORTAL" + url);
 
+			
+			
+			log.info("Tc10:-web2Lead formfillup testcase passed");
+			System.out.println("Tc10:-web2Lead formfillup testcase passed");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.info("Tc8:-web2Lead formfillup testcase completed");
+			log.info("Tc10:-web2Lead formfillup testcase failed");
+			System.out.println("Tc10:-web2Lead formfillup testcase failed");
 		}
 	}
 

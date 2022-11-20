@@ -21,9 +21,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.google.common.base.Function;
 
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 
 public class Utils {
@@ -50,8 +52,7 @@ public class Utils {
 					}
 				});
 				WE.click();
-				// new WebDriverWait(driver,
-				// 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+
 				break;
 			} catch (Exception e) {
 				Thread.sleep(3000);
@@ -269,6 +270,80 @@ public class Utils {
 
 	@Test
 	public static void basic_info(WebDriver driver, String[] csvCell, String url) throws Throwable {
+		String firstname = csvCell[5];
+
+		String middlename = csvCell[6];
+		String lastname = csvCell[7];
+		String email = csvCell[8];
+		String mobile = csvCell[9];
+		String mobilephone = csvCell[10];
+		String dob = csvCell[11];
+
+		System.out.println(firstname);
+		System.out.println(firstname);
+		System.out.println(email);
+
+		String exp = csvCell[48];
+
+		// basic_info(csvCell, driver);
+		// Addres_info(csvCell, driver);
+		Thread.sleep(4000);
+		Utils.callSendkeys(driver, ActionXpath.firstname, firstname);
+
+		if (checkmiddlename(url)) {
+			System.out.println("no middel name");
+		} else {
+			Utils.callSendkeys(driver, ActionXpath.middlename, middlename);
+		}
+
+		Utils.callSendkeys(driver, ActionXpath.lastName, lastname);
+		Utils.callSendkeys(driver, ActionXpath.email, email);
+		Utils.callSendkeys(driver, ActionXpath.mobile, mobile);
+
+		if (checkadditionalphone(url)) {
+			System.out.println("no additional name");
+		} else {
+			Utils.callSendkeys(driver, ActionXpath.mobilePhone, mobilephone);
+		}
+
+		if (checkToskipdob(url)) {
+			System.out.println("no dob");
+
+		} else {
+			Utils.callSendkeys(driver, ActionXpath.dob, dob);
+		}
+
+		if (checkToskipcourse(url)) {
+			System.out.println("no course");
+			System.out.println(url);
+		} else {
+			Thread.sleep(2000);
+
+			Utils.callSendkeys(driver, ActionXpath.ageselect, "18");
+
+			Utils.callSendkeys(driver, ActionXpath.aadhar, "123456789012");
+
+			Utils.callSendkeys(driver, ActionXpath.enquiry, "12");
+
+			Utils.clickXpath(driver, ActionXpath.qualif, "qualif");
+
+			driver.findElement(By.xpath("//li[.='12th']")).click();
+
+			Utils.clickXpath(driver, ActionXpath.trainingcenter, "trainingcenter");
+
+			driver.findElement(By.xpath("//li[.='NSIC, Delhi']")).click();
+
+			Utils.clickXpath(driver, ActionXpath.course1, "course1");
+
+			driver.findElement(By.xpath("//li[.='Big Data']")).click();
+
+			Utils.clickXpath(driver, ActionXpath.clickoncheckox, "clickoncheckox");
+
+		}
+	}
+
+	@Test
+	public static void basic_info_validation(WebDriver driver, String[] csvCell, String url) throws Throwable {
 		String firstname = csvCell[5];
 
 		String middlename = csvCell[6];
@@ -816,19 +891,16 @@ public class Utils {
 //		driver.findElement(By.xpath("//li[@data-value='" + castism + "']")).click();
 
 		Thread.sleep(2000);
-	WebElement el= driver.findElement(By.xpath("(//button[@name='gender'])[3]"));
-	
-	boolean actual = el.isSelected();
-	
-if(actual)
-{
-	System.out.println("true");
-	
-}
-else
-{
-	el.click();
-}
+		WebElement el = driver.findElement(By.xpath("(//button[@name='gender'])[3]"));
+
+		boolean actual = el.isSelected();
+
+		if (actual) {
+			System.out.println("true");
+
+		} else {
+			el.click();
+		}
 
 		Utils.clickXpath(driver, ActionXpath.clickonnext, "clickonnext");
 
@@ -1097,11 +1169,11 @@ else
 	{
 		Thread.sleep(5000);
 
-		Utils.callSendkeys(driver, ActionXpath.passport, "C:\\Users\\Dell\\Desktop\\Screenshot (154).png");
+		Utils.callSendkeys(driver, ActionXpath.passport, "C:\\Users\\Public\\Documents\\passport.png");
 		Thread.sleep(5000);
-		Utils.callSendkeys(driver, ActionXpath.addhar, "C:\\Users\\Dell\\Desktop\\Screenshot (154).png");
+		Utils.callSendkeys(driver, ActionXpath.addhar, "C:\\Users\\Public\\Documents\\aadhar.png");
 		Thread.sleep(6000);
-		Utils.callSendkeys(driver, ActionXpath.school, "C:\\Users\\Dell\\Desktop\\Screenshot (154).png");
+		Utils.callSendkeys(driver, ActionXpath.school, "C:\\Users\\Public\\Documents\\school.png");
 
 		Thread.sleep(10000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1873,6 +1945,75 @@ else
 			return true;
 		}
 		return false;
+	}
+
+	@Test
+
+	public static void clickonApplicationandverify(String sal_url, WebDriver driver, String[] csvCell)
+			throws Exception {
+
+		Thread.sleep(10000);
+
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebElement e = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Applications']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", e);
+		System.out.println("click on Application");
+		Thread.sleep(5000);
+
+		List<WebElement> clickapplicant = driver.findElements(By.xpath("//table//tbody//td[3]//a"));
+		String Applicant = csvCell[67];
+		for (int i = 0; i < clickapplicant.size(); i++) {
+
+			if (clickapplicant.get(i).getText().contains(Applicant)) {
+				clickapplicant.get(i).click();
+
+				break;
+			}
+
+		}
+		SoftAssert softassert = new SoftAssert();
+		Thread.sleep(3000);
+		String firstname = csvCell[5];
+
+		String surename = csvCell[16];
+
+		String expectedname = firstname + " " + surename;
+		System.out.println(expectedname + " expected_Firstname");
+		WebElement re = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-tab-value='detailTab']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", re);
+		Thread.sleep(3000);
+		WebElement firstnameverify = driver.findElement(By.xpath(
+				"(//span[@class='test-id__field-value slds-form-element__static slds-grow word-break-ie11'])[1]"));
+
+		String actualfirstnameverification = firstnameverify.getText();
+		System.out.println(actualfirstnameverification + " actualFirstname");
+		softassert.assertEquals(expectedname, actualfirstnameverification);
+		softassert.assertTrue(true, actualfirstnameverification);
+
+		String expectedmobilenumber = csvCell[9];
+		System.out.println(expectedmobilenumber + " expectedmobilenumber");
+		Thread.sleep(3000);
+		WebElement phonenumberverify = driver.findElement(By.xpath(
+				"(//span[@class='test-id__field-value slds-form-element__static slds-grow word-break-ie11'])[2]"));
+
+		String actualphonenumberverify = phonenumberverify.getText();
+		System.out.println(actualphonenumberverify + " actualphonenumber");
+		softassert.assertEquals(expectedmobilenumber, actualphonenumberverify);
+		softassert.assertTrue(true, actualphonenumberverify);
+
+		String expectedemail = csvCell[8];
+		System.out.println(expectedemail + " expected email");
+		Thread.sleep(3000);
+		WebElement actualemailverify = driver.findElement(By.xpath(
+				"(//span[@class='test-id__field-value slds-form-element__static slds-grow word-break-ie11'])[4]"));
+
+		String actualemailverification = actualemailverify.getText();
+		System.out.println(actualemailverification + " actual email");
+		softassert.assertEquals(expectedemail, actualemailverification);
+		softassert.assertTrue(true, actualemailverification);
+		softassert.assertAll();
+
 	}
 
 	@Test
