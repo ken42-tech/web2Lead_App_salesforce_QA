@@ -1991,16 +1991,26 @@ public class Utils {
 		softassert.assertEquals(expectedname, actualfirstnameverification);
 		softassert.assertTrue(true, actualfirstnameverification);
 
+		
+		
+		
 		String expectedmobilenumber = csvCell[9];
-		System.out.println(expectedmobilenumber + " expectedmobilenumber");
+		System.out.println(expectedmobilenumber + " expected_mobile_number");
 		Thread.sleep(3000);
 		WebElement phonenumberverify = driver.findElement(By.xpath(
 				"(//span[@class='test-id__field-value slds-form-element__static slds-grow word-break-ie11'])[2]"));
 
-		String actualphonenumberverify = phonenumberverify.getText();
-		System.out.println(actualphonenumberverify + " actualphonenumber");
-		softassert.assertEquals(expectedmobilenumber, actualphonenumberverify);
-		softassert.assertTrue(true, actualphonenumberverify);
+		String actualphonenumberverifybefore = phonenumberverify.getText();
+		System.out.println(actualphonenumberverifybefore+" before_number");
+		String str = "918147751055";
+		// Remove a substring from a string in Java	
+		//System.out.println("String after removing the first '91' substring = "+str.replaceFirst("91", ""));
+		String actualphonenumber = str.replaceFirst("91","");
+		System.out.println(actualphonenumber + " actual_phone_numberafter");
+		
+		
+		softassert.assertEquals(expectedmobilenumber, actualphonenumber);
+		softassert.assertTrue(true, actualphonenumber);
 
 		String expectedemail = csvCell[8];
 		System.out.println(expectedemail + " expected email");

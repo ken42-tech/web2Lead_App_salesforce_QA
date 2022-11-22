@@ -200,5 +200,11 @@ public class ActionXpath {
 	static String ifsccode = "//input[@name='ifscCode']";
 
 	static String selectstate = "(//div[@aria-labelledby='state'])[1]";
+	
+////............................validation xpath..........................................................////
 
+	static String erorxpath = "//span[@style='color: rgb(185, 37, 0);']";
+	
+	
+	
 }

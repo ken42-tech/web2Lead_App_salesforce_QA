@@ -9,12 +9,14 @@
           <include name="signout_app"/>
           <include name="smallSleepBetweenClicks"/>
           <include name="goBackToHome"/>
+          <include name="clickonApplicationandverify"/>
           <include name="printException"/>
-          <include name="other_info"/>
+          <include name="firstbasic_info"/>
           <include name="basic_info"/>
+          <include name="other_info"/>
           <include name="address_info"/>
-          <include name="firstname_validationalphabet"/>
           <include name="Appbasic_info"/>
+          <include name="firstname_validationalphabet"/>
           <include name="salesforce_login"/>
           <include name="w2lform_validationcheck"/>
           <include name="markasStatus"/>
@@ -23,17 +25,18 @@
           <include name="validateAppbasic_info"/>
           <include name="selectsaveanddelete"/>
           <include name="bigSleepBetweenClicks"/>
-          <include name="family_info"/>
           <include name="clickonApplicationview"/>
+          <include name="family_info"/>
           <include name="uploadfile_info"/>
           <include name="login"/>
           <include name="Multipleuploadfile_info"/>
+          <include name="basic_info_validation"/>
           <include name="submit_app"/>
-          <include name="profile_logout"/>
           <include name="clickonApplicationandselect"/>
+          <include name="profile_logout"/>
           <include name="salesforce_applicationviewanddelete"/>
-          <include name="qualification_info"/>
           <include name="clickonleadandselect"/>
+          <include name="qualification_info"/>
           <include name="validate_middlename"/>
         </methods>
       </class> <!-- com.ken42.Appw2l.Utils -->

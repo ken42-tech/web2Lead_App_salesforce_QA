@@ -236,43 +236,24 @@ public class w2l_portal {
 			Utils.callSendkeys(driver, ActionXpath.firstname, checkwithalphabet);
 
 			Utils.cleartext(driver, ActionXpath.firstname);
-			Utils.callSendkeys(driver, ActionXpath.firstname, checkwithnumber);
-			WebElement alphafirstname = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checkfirstnamewithnumber = alphafirstname.getText();
-			System.out.println(checkfirstnamewithnumber);
+			// Utils.callSendkeys(driver, ActionXpath.firstname, checkwithnumber);
+			Validate.validateNumber(driver, ActionXpath.firstname, ActionXpath.erorxpath);
+
 			log.warning("Tc1:-Firstname data validation check with number failed ");
-
-			if (!checkfirstnamewithnumber.equals(null)) {
-
-				log.warning("Tc1:-Firstname data validation check with number failed it's null ");
-
-			}
-
 			Utils.cleartext(driver, ActionXpath.firstname);
-			Utils.callSendkeys(driver, ActionXpath.firstname, checkwithlength);
-			WebElement number = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checkfirstnamewithcharactersize = number.getText();
-			System.out.println(checkfirstnamewithcharactersize);
+			// Utils.callSendkeys(driver, ActionXpath.firstname, checkwithlength);
+
+			Validate.validate20CharLength(driver, ActionXpath.firstname, ActionXpath.erorxpath);
+
 			log.warning("Tc1:-Firstname data validation check with length size failed  ");
 
-			if (!checkfirstnamewithcharactersize.equals(null)) {
-
-				log.warning("Tc1:-Firstname data validation check with length size failed it's null ");
-
-			}
-
 			Utils.cleartext(driver, ActionXpath.firstname);
-			Utils.callSendkeys(driver, ActionXpath.firstname, checkwithSpecialCharacteronly);
-			WebElement SpecialCharacteronly = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checkfirstnamewithSpecialCharacteronly = SpecialCharacteronly.getText();
-			System.out.println(checkfirstnamewithSpecialCharacteronly);
+			// Utils.callSendkeys(driver, ActionXpath.firstname,
+			// checkwithSpecialCharacteronly);
+
+			Validate.validateSpecialChar(driver, ActionXpath.firstname, ActionXpath.erorxpath);
+
 			log.warning("Tc1:-Firstname data validation check with SpecialCharacter failed  ");
-
-			if (!checkfirstnamewithSpecialCharacteronly.equals(null)) {
-
-				log.warning("Tc1:-Firstname data validation check with SpecialCharacter failed  it's null");
-
-			}
 
 			log.info("Tc1:-Firstname validation testcase passed");
 			System.out.println("Tc1:-Firstname validation testcase passed");
@@ -296,43 +277,17 @@ public class w2l_portal {
 			Utils.callSendkeys(driver, ActionXpath.lastName, checkwithalphabet);
 
 			Utils.cleartext(driver, ActionXpath.lastName);
-			Utils.callSendkeys(driver, ActionXpath.lastName, checkwithnumber);
-			WebElement alphalastName = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checklastNamewithnumber = alphalastName.getText();
-			System.out.println(checklastNamewithnumber);
-			log.warning("Tc2:-LastName data validation check with number failed  ");
-
-			if (!checklastNamewithnumber.equals(null)) {
-
-				log.warning("Tc2:-LastName data validation check with number failed it's null  ");
-
-			}
+			// Utils.callSendkeys(driver, ActionXpath.lastName, checkwithnumber);
+			Validate.validateNumber(driver, ActionXpath.lastName, ActionXpath.erorxpath);
 
 			Utils.cleartext(driver, ActionXpath.lastName);
-			Utils.callSendkeys(driver, ActionXpath.lastName, checkwithlength);
-			WebElement number = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checklastNamewithcharactersize = number.getText();
-			System.out.println(checklastNamewithcharactersize);
-			log.warning("Tc2:-LastName data validation check with length size failed  ");
-
-			if (!checklastNamewithcharactersize.equals(null)) {
-
-				log.warning("Tc2:-LastName data validation check with length size failed it's null ");
-
-			}
+			// Utils.callSendkeys(driver, ActionXpath.lastName, checkwithlength);
+			Validate.validate20CharLength(driver, ActionXpath.firstname, ActionXpath.erorxpath);
 
 			Utils.cleartext(driver, ActionXpath.lastName);
-			Utils.callSendkeys(driver, ActionXpath.lastName, checkwithSpecialCharacteronly);
-			WebElement SpecialCharacteronly = driver.findElement(By.xpath("//span[@style='color: rgb(185, 37, 0);']"));
-			String checklastNamewithSpecialCharacteronly = SpecialCharacteronly.getText();
-			System.out.println(checklastNamewithSpecialCharacteronly);
-			log.warning("Tc2:-LastName data validation check with specialCharacter failed  ");
-
-			if (!checklastNamewithSpecialCharacteronly.equals(null)) {
-
-				log.warning("Tc2:-LastName data validation check with specialCharacter failed it's null ");
-
-			}
+			// Utils.callSendkeys(driver, ActionXpath.lastName,
+			// checkwithSpecialCharacteronly);
+			Validate.validateSpecialChar(driver, ActionXpath.firstname, ActionXpath.erorxpath);
 
 			log.info("Tc2:-Lastname validation testcase passed");
 			System.out.println("Tc2:-Lastname validation testcase passed");
@@ -811,9 +766,9 @@ public class w2l_portal {
 	{
 		try {
 
-			((JavascriptExecutor) driver).executeScript("window.open()");
-			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tab.get(9));
+//			((JavascriptExecutor) driver).executeScript("window.open()");
+//			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+//			driver.switchTo().window(tab.get(9));
 
 			String url = csvCell[40];
 			driver.get(url);
